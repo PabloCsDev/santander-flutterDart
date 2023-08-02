@@ -4,7 +4,11 @@ import 'package:santander_app/models/user_model/user_model.dart';
 import 'package:santander_app/services/api.dart';
 import 'package:santander_app/shared/app_colors.dart';
 import 'package:santander_app/shared/app_images.dart';
+import 'package:santander_app/widgets/balance.dart';
+import 'package:santander_app/widgets/features.dart';
+import 'package:santander_app/widgets/info_card.dart';
 
+import '../../widgets/card.dart';
 import '../../widgets/header.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,7 +65,21 @@ class _HomePageState extends State<HomePage> {
         children: [ 
           HeaderWidget(
             user: user!,
-        )        // Adicione os widgets que deseja colocar no corpo da página aqui
+        ) ,
+        const SizedBox(
+              height: 10,
+             ),
+             BalanceWidget(account: user!.account!),
+             
+             FeaturesWidget(features: user!.features!) ,
+             const SizedBox(
+              height: 10,
+             ),
+             CardWidget( card: user!.card!), 
+             const SizedBox(
+              height: 10,
+             ),
+             InfoCardsWidget(news: user!.news!),
         ],
       ),
     );

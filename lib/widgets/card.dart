@@ -6,10 +6,15 @@ import '../shared/app_colors.dart';
 import '../shared/app_images.dart';
 import '../shared/app_settings.dart';
 
-class CardWidget extends StatelessWidget {
+class CardWidget extends StatefulWidget {
   final CreditCard card;
   const CardWidget({super.key, required this.card});
 
+  @override
+  State<CardWidget> createState() => _CardWidgetState();
+}
+
+class _CardWidgetState extends State<CardWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +27,7 @@ class CardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Cartão final: ${card.number!.split(' ')[3]}",
+              "Cartão final: ${widget.card.number!.split(' ')[3]}",
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
