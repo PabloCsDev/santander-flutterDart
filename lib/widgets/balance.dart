@@ -7,15 +7,10 @@ import '../shared/app_colors.dart';
 import '../shared/app_images.dart';
 import '../shared/app_settings.dart';
 
-class BalanceWidget extends StatefulWidget {
+class BalanceWidget extends StatelessWidget {
   final Account account;
   const BalanceWidget({super.key, required this.account});
 
-  @override
-  State<BalanceWidget> createState() => _BalanceWidgetState();
-}
-
-class _BalanceWidgetState extends State<BalanceWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,7 +56,7 @@ class _BalanceWidgetState extends State<BalanceWidget> {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                "R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(widget.account.balance)}",
+                "R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(account.balance)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 32,
@@ -71,7 +66,7 @@ class _BalanceWidgetState extends State<BalanceWidget> {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Saldo + Limite: R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(widget.account.balance! + widget.account.limit!)}",
+                "Saldo + Limite: R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(account.balance! + account.limit!)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 18,

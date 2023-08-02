@@ -16,7 +16,7 @@ class HeaderWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       height: AppSettings.screenHeight / 5,
-      width: AppSettings.screenWidth,
+      width: AppSettings.screenWidth ,
       color: AppColors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

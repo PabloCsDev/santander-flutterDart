@@ -8,6 +8,7 @@ import 'package:santander_app/widgets/balance.dart';
 import 'package:santander_app/widgets/features.dart';
 import 'package:santander_app/widgets/info_card.dart';
 
+import '../../shared/app_settings.dart';
 import '../../widgets/card.dart';
 import '../../widgets/header.dart';
 
@@ -61,15 +62,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
+      body: Stack(
         children: [ 
-          HeaderWidget(
+          Column(
+            children: [
+              HeaderWidget(
             user: user!,
         ) ,
         const SizedBox(
-              height: 10,
+              height: 130,
              ),
-             BalanceWidget(account: user!.account!),
              
              FeaturesWidget(features: user!.features!) ,
              const SizedBox(
@@ -80,6 +82,13 @@ class _HomePageState extends State<HomePage> {
               height: 10,
              ),
              InfoCardsWidget(news: user!.news!),
+            ]
+              
+          ),
+        Positioned(
+            top: AppSettings.screenHeight / 7 - 24, 
+            child: BalanceWidget(account: user!.account!), 
+            ),
         ],
       ),
     );
